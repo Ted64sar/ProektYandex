@@ -6,7 +6,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Settings(object):
     def setupUi(self, Settings):
         Settings.setObjectName("Settings")
-        Settings.resize(800, 600)
+        Settings.resize(600, 600)
         self.centralwidget = QtWidgets.QWidget(Settings)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -134,7 +134,7 @@ class Ui_Settings(object):
         self.radioButton_13.setText(_translate("Settings", "Татуин"))
         self.radioButton_14.setText(_translate("Settings", "Эндор"))
         self.radioButton_12.setText(_translate("Settings", "Серый Фон"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Settings", "Фон"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Settings", "фон"))
 
 
 
