@@ -4,6 +4,7 @@ import random
 
 
 def prepare_and_start():
+    label.config(text="Найди выход")
     f = []
     global player, exit, fires, enemies
     canvas.delete("all")
