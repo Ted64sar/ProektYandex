@@ -133,8 +133,8 @@ class Ui_Settings(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("Settings", "Препятствия"))
         self.radioButton_13.setText(_translate("Settings", "Татуин"))
         self.radioButton_14.setText(_translate("Settings", "Эндор"))
-        self.radioButton_12.setText(_translate("Settings", "Серый Фон"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Settings", "фон"))
+        self.radioButton_12.setText(_translate("Settings", "Серый фон"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Settings", "Фон"))
 
 
 
