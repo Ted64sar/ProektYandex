@@ -9,16 +9,16 @@ def prepare_and_start():
     global player, exit, fires, enemies
     canvas.delete("all")
     player_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-    player = canvas.create_image((player_pos[0],player_pos[1]), image=player_pic, anchor='nw')
+    player = canvas.create_image((player_pos[0], player_pos[1]), image=player_pic, anchor='nw')
     exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-    while exit_pos==player_pos:
+    while exit_pos == player_pos:
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-    exit = canvas.create_image((exit_pos[0],exit_pos[1]), image=exit_pic, anchor='nw')
+    exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
     N_FIRES = 6  # Чи  ло клеток, заполненных огнем
     fires = []
     for i in range(N_FIRES):
         fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-        while exit_pos==fire_pos or fire_pos==player_pos or fire_pos in f:
+        while exit_pos == fire_pos or fire_pos == player_pos or fire_pos in f:
             fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
         f.append(fire_pos)
         fire = canvas.create_image((fire_pos[0],fire_pos[1]), image=fire_pic, anchor='nw')
@@ -27,12 +27,11 @@ def prepare_and_start():
     enemies = []
     for i in range(N_ENEMIES):
         enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-        while exit_pos==enemy_pos or enemy_pos==player_pos or enemy_pos in f:
+        while exit_pos==enemy_pos or enemy_pos == player_pos or enemy_pos in f:
             enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-        enemy = canvas.create_image((enemy_pos[0],enemy_pos[1]), image=enemy_pic, anchor='nw')
+        enemy = canvas.create_image((enemy_pos[0], enemy_pos[1]), image=enemy_pic, anchor='nw')
         enemies.append((enemy, random.choice([always_right, random_move])))
     master.bind("<KeyPress>", key_pressed)
-
 
 
 def always_right():
@@ -41,13 +40,13 @@ def always_right():
 
 def random_move():
     for e in enemies:
-        if canvas.coords(player)[0]> canvas.coords(e[0])[0]:
+        if canvas.coords(player)[0] > canvas.coords(e[0])[0]:
             return (step, 0)
-        elif canvas.coords(player)[0]< canvas.coords(e[0])[0]:
+        elif canvas.coords(player)[0] < canvas.coords(e[0])[0]:
             return (-step, 0)
-        elif canvas.coords(player)[1]< canvas.coords(e[0])[1]:
+        elif canvas.coords(player)[1] < canvas.coords(e[0])[1]:
             return (0, -step)
-        elif canvas.coords(player)[1]> canvas.coords(e[0])[1]:
+        elif canvas.coords(player)[1] > canvas.coords(e[0])[1]:
             return (0, step)
 
 
@@ -104,9 +103,9 @@ label = tkinter.Label(master, text="Найди выход")
 label.pack()
 canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
 canvas.pack()
-restart = tkinter.Button(master, text="Начать заново",command=prepare_and_start)
+restart = tkinter.Button(master, text="Начать заново", command=prepare_and_start)
 restart.pack()
-settings = tkinter.Button(master, text="Настройки",command=prepare_and_start)
+settings = tkinter.Button(master, text="Настройки", command=prepare_and_start)
 settings.pack()
 prepare_and_start()
 master.mainloop()
