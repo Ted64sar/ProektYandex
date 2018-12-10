@@ -114,7 +114,7 @@ class Ui_Settings(object):
     def retranslateUi(self, Settings):
         _translate = QtCore.QCoreApplication.translate
         Settings.setWindowTitle(_translate("Settings", "MainWindow"))
-        self.label.setText(_translate("Settings", "<html><head/><body><p><span style=\" font-size:11pt; color:#ff0000;\">Настройки игры</span></p></body></html>"))
+        self.label.setText(_translate("Settings", "<html><head/><body><p><span style=\" font-size:18pt; color:#ff0000;\">Настройки игры</span></p></body></html>"))
         self.pushButton.setText(_translate("Settings", "Сохранить настройки"))
         self.tabWidget.setToolTip(_translate("Settings", "<html><head/><body><p>Герой</p><p><br/></p></body></html>"))
         self.radioButton_4.setText(_translate("Settings", "R-2 D-2"))
