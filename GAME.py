@@ -101,10 +101,10 @@ step = 60  # Размер клетки
 N_X = 10
 N_Y = 10  # Размер сетки
 master = tkinter.Tk()
-player_pic = tkinter.PhotoImage(file="images/R2-D2.png")
+player_pic = tkinter.PhotoImage(file="images/C3PO.png")
 exit_pic = tkinter.PhotoImage(file="images/tardis.png")
-fire_pic = tkinter.PhotoImage(file="images/fire.png")
-enemy_pic = tkinter.PhotoImage(file="images/stormtrooper.png")
+fire_pic = tkinter.PhotoImage(file="images/mine.png")
+enemy_pic = tkinter.PhotoImage(file="images/death-stormtrooper.png")
 label = tkinter.Label(master, text="Найди выход")
 label.pack()
 canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
