@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_file.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.7
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -16,6 +16,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(180, 80, 421, 391))
+        self.tabWidget.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -77,26 +78,9 @@ class Ui_MainWindow(object):
         self.radioButton_5.setObjectName("radioButton_5")
         self.verticalLayout_3.addWidget(self.radioButton_5)
         self.tabWidget.addTab(self.tab_3, "")
-        self.tab_4 = QtWidgets.QWidget()
-        self.tab_4.setObjectName("tab_4")
-        self.verticalLayoutWidget_4 = QtWidgets.QWidget(self.tab_4)
-        self.verticalLayoutWidget_4.setGeometry(QtCore.QRect(0, 0, 421, 371))
-        self.verticalLayoutWidget_4.setObjectName("verticalLayoutWidget_4")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_4)
-        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.radioButton_13 = QtWidgets.QRadioButton(self.verticalLayoutWidget_4)
-        self.radioButton_13.setObjectName("radioButton_13")
-        self.verticalLayout_4.addWidget(self.radioButton_13)
-        self.radioButton_14 = QtWidgets.QRadioButton(self.verticalLayoutWidget_4)
-        self.radioButton_14.setObjectName("radioButton_14")
-        self.verticalLayout_4.addWidget(self.radioButton_14)
-        self.radioButton_12 = QtWidgets.QRadioButton(self.verticalLayoutWidget_4)
-        self.radioButton_12.setObjectName("radioButton_12")
-        self.verticalLayout_4.addWidget(self.radioButton_12)
-        self.tabWidget.addTab(self.tab_4, "")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(580, 500, 131, 41))
+        self.pushButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -128,9 +112,5 @@ class Ui_MainWindow(object):
         self.radioButton_11.setText(_translate("MainWindow", "Мины"))
         self.radioButton_5.setText(_translate("MainWindow", "Баст-дроиды"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Препятствия"))
-        self.radioButton_13.setText(_translate("MainWindow", "Татуин"))
-        self.radioButton_14.setText(_translate("MainWindow", "Эндор"))
-        self.radioButton_12.setText(_translate("MainWindow", "Серый Фон"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Фон"))
         self.pushButton.setText(_translate("MainWindow", "Сохранить настройки"))
 

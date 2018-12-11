@@ -41,15 +41,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
            f.write('2' + '\n')
        elif self.radioButton_5.isChecked():
            f.write('3' + '\n')
-       # fon
-       f.write('Татуин; Эндор; Серый Фон'+ '\n')
-       if self.radioButton_13.isChecked():
-           f.write('1' + '\n')
-       elif self.radioButton_14.isChecked():
-           f.write('2' + '\n')
-       elif self.radioButton_12.isChecked():
-           f.write('3' + '\n')
-       f.close()
+
 
 
 app = QApplication(sys.argv)
