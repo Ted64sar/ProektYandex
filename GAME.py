@@ -14,7 +14,7 @@ def prepare_and_start():
     while exit_pos == player_pos:
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
-    N_FIRES = 6  # Чи  ло клеток, заполненных огнем
+    N_FIRES = 6
     fires = []
     for i in range(N_FIRES):
         fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -23,7 +23,7 @@ def prepare_and_start():
         f.append(fire_pos)
         fire = canvas.create_image((fire_pos[0],fire_pos[1]), image=fire_pic, anchor='nw')
         fires.append(fire)
-        N_ENEMIES = 6  # Чи  ло врагов
+        N_ENEMIES = 6
     enemies = []
     for i in range(N_ENEMIES):
         enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -32,6 +32,10 @@ def prepare_and_start():
         enemy = canvas.create_image((enemy_pos[0], enemy_pos[1]), image=enemy_pic, anchor='nw')
         enemies.append((enemy, random.choice([always_right, random_move])))
     master.bind("<KeyPress>", key_pressed)
+
+
+def settings():
+    return (step)
 
 
 def always_right():
@@ -85,9 +89,11 @@ def key_pressed(event):
         move_wrap(canvas, player, [step, 0])
     if event.keysym == 'Left':
         move_wrap(canvas, player, [-step, 0])
+    if event.keysym == 'Space':
+        move_wrap(canvas, player, [0, 0])
     for enemy in enemies:
-        direction = enemy[1]()  # вызвать функцию перемещения у "врага"
-        move_wrap(canvas, enemy[0], direction)  # произвести  перемещение.
+        direction = enemy[1]()
+        move_wrap(canvas, enemy[0], direction)
     check_move()
 
 
@@ -105,7 +111,7 @@ canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
 canvas.pack()
 restart = tkinter.Button(master, text="Начать заново", command=prepare_and_start)
 restart.pack()
-settings = tkinter.Button(master, text="Настройки", command=prepare_and_start)
+settings = tkinter.Button(master, text="Настройки", command=settings)
 settings.pack()
 prepare_and_start()
 master.mainloop()
