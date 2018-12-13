@@ -2,8 +2,8 @@
 import tkinter
 import random
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from ui_file import Ui_MainWindow
+#from PyQt5.QtWidgets import QApplication, QMainWindow
+#from ui_file import Ui_MainWindow
 
 
 def prepare_and_start():
@@ -49,7 +49,7 @@ def settings():
         def run(self):
             f = open('GAME_SETTINGS.txt', 'w')
             # repson
-            f.write('R-2 D-2; BB-8; R-4; C-3 P O; Chopper' + '\n')
+            f.write('R2-D2.png BB8.png R-4.png C3PO.png CHOPPER.png' + '\n')
             if self.radioButton_2.isChecked():
                 f.write('1' + '\n')
             elif self.radioButton_3.isChecked():
@@ -61,7 +61,7 @@ def settings():
             elif self.radioButton.isChecked():
                 f.write('5' + '\n')
             # rpotiv
-            f.write('Штурмовик; Штурмовик Смерти; Дроид торговой Федерации' + '\n')
+            f.write('stormtrooper.png death-stormtrooper.png trade-federation-droid.png' + '\n')
             if self.radioButton_6.isChecked():
                 f.write('1' + '\n')
             elif self.radioButton_7.isChecked():
@@ -69,7 +69,7 @@ def settings():
             elif self.radioButton_8.isChecked():
                 f.write('3' + '\n')
             # prepyat
-            f.write('Ямы; Мины; Баст-дроиды' + '\n')
+            f.write('hole.png mine.png bust-droid.png' + '\n')
             if self.radioButton_10.isChecked():
                 f.write('1' + '\n')
             elif self.radioButton_11.isChecked():
@@ -81,6 +81,7 @@ def settings():
     ex = MyWidget()
     ex.show()
     sys.exit(app.exec_())
+    prepare_and_start
 
 
 def always_right():
@@ -142,14 +143,18 @@ def key_pressed(event):
     check_move()
 
 
-step = 60  # Размер клетки
+step = 60
 N_X = 10
-N_Y = 10  # Размер сетки
+N_Y = 10
 master = tkinter.Tk()
-player_pic = tkinter.PhotoImage(file="images/C3PO.png")
+with open('GAME_SETTINGS.txt', 'r') as inp:
+    files = inp.read().split('\n')[0::2]
+    ind = inp.read().split('\n')[1::2]
+
+player_pic = tkinter.PhotoImage(file=files[0].split()[int(ind[0])-1])
 exit_pic = tkinter.PhotoImage(file="images/tardis.png")
-fire_pic = tkinter.PhotoImage(file="images/mine.png")
-enemy_pic = tkinter.PhotoImage(file="images/death-stormtrooper.png")
+fire_pic = tkinter.PhotoImage(file=files[2].split()[int(ind[2])-1])
+enemy_pic = tkinter.PhotoImage(file=files[1].split()[int(ind[1])-1])
 label = tkinter.Label(master, text="Найди выход")
 label.pack()
 canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)

@@ -1,6 +1,6 @@
-R-2 D-2; BB-8; R-4; C-3 P O; Chopper
+R2-D2.png BB8.png R-4.png C3PO.png CHOPPER.png
 1
-Штурмовик; Штурмовик Смерти; Дроид торговой Федерации
-2
-Ямы; Мины; Баст-дроиды
-3
+stormtrooper.png death-stormtrooper.png trade-federation-droid.png
+1
+hole.png mine.png bust-droid.png
+1
