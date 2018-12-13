@@ -2,8 +2,8 @@
 import tkinter
 import random
 import sys
-#from PyQt5.QtWidgets import QApplication, QMainWindow
-#from ui_file import Ui_MainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from ui_file import Ui_MainWindow
 
 
 def prepare_and_start():
