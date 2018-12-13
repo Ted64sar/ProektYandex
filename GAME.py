@@ -148,13 +148,14 @@ N_X = 10
 N_Y = 10
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
-    files = inp.read().split('\n')[0::2]
-    ind = inp.read().split('\n')[1::2]
+    f = inp.read().split('\n')[0::]
+    files = f[::2]
+    ind = f[1::2]
 
-player_pic = tkinter.PhotoImage(file=files[0].split()[int(ind[0])-1])
+player_pic = tkinter.PhotoImage(file="images/"+str(files[0].split()[int(ind[0])-1]))
 exit_pic = tkinter.PhotoImage(file="images/tardis.png")
-fire_pic = tkinter.PhotoImage(file=files[2].split()[int(ind[2])-1])
-enemy_pic = tkinter.PhotoImage(file=files[1].split()[int(ind[1])-1])
+fire_pic = tkinter.PhotoImage(file="images/"+str(files[2].split()[int(ind[2])-1]))
+enemy_pic = tkinter.PhotoImage(file="images/"+str(files[1].split()[int(ind[1])-1]))
 label = tkinter.Label(master, text="Найди выход")
 label.pack()
 canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
