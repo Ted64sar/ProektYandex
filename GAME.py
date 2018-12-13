@@ -37,6 +37,7 @@ def prepare_and_start():
     master.bind("<KeyPress>", key_pressed)
 
 
+
 def settings():
 
     class MyWidget(QMainWindow, Ui_MainWindow):
