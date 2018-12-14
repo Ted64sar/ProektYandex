@@ -17,7 +17,7 @@ def prepare_and_start():
     while exit_pos == player_pos:
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
-    N_FIRES = 6
+    N_FIRES = 10
     fires = []
     for i in range(N_FIRES):
         fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -26,14 +26,14 @@ def prepare_and_start():
         f.append(fire_pos)
         fire = canvas.create_image((fire_pos[0],fire_pos[1]), image=fire_pic, anchor='nw')
         fires.append(fire)
-        N_ENEMIES = 6
+        N_ENEMIES = 12
     enemies = []
     for i in range(N_ENEMIES):
         enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
         while exit_pos==enemy_pos or enemy_pos == player_pos or enemy_pos in f:
             enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
         enemy = canvas.create_image((enemy_pos[0], enemy_pos[1]), image=enemy_pic, anchor='nw')
-        enemies.append((enemy, random.choice([always_right, random_move])))
+        enemies.append((enemy, random.choice([always_right, random_move, always_up, always_left, always_down, statyk])))
     master.bind("<KeyPress>", key_pressed)
 
 
@@ -87,6 +87,17 @@ def settings():
 def always_right():
     return (step, 0)
 
+def always_left():
+    return (-step, 0)
+
+def always_up():
+    return (0, step)
+
+def always_down():
+    return (0, -step)
+
+def statyk():
+    return (0, 0)
 
 def random_move():
     for e in enemies:
@@ -110,19 +121,19 @@ def check_move():
         master.bind("<KeyPress>", do_nothing)
     for f in fires:
         if canvas.coords(player) == canvas.coords(f):
-            label.config(text="Ты проиграл!")
+            label.config(text="Поражение!")
             master.bind("<KeyPress>", do_nothing)
     for e in enemies:
         if canvas.coords(player) == canvas.coords(e[0]):
-            label.config(text="Ты проиграл!")
+            label.config(text="Поражение!")
             master.bind("<KeyPress>", do_nothing)
 
 
 def move_wrap(canvas, obj, move):
     canvas.move(obj, move[0], move[1])
     coords = canvas.coords(obj)
-    to_move_x = coords[0] % 600 - coords[0]
-    to_move_y = coords[1] % 600 - coords[1]
+    to_move_x = coords[0] % 900 - coords[0]
+    to_move_y = coords[1] % 720 - coords[1]
     canvas.move(obj, to_move_x, to_move_y)
 
 
@@ -144,8 +155,8 @@ def key_pressed(event):
 
 
 step = 60
-N_X = 10
-N_Y = 10
+N_X = 12
+N_Y = 15
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
     f = inp.read().split('\n')[0::]
