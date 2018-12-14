@@ -18,7 +18,7 @@ def prepare_and_start():
     while exit_pos == player_pos:
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
-    N_FIRES = 12
+    N_FIRES = 15
     fires = []
     for i in range(N_FIRES):
         fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -27,7 +27,7 @@ def prepare_and_start():
         f.append(fire_pos)
         fire = canvas.create_image((fire_pos[0],fire_pos[1]), image=fire_pic, anchor='nw')
         fires.append(fire)
-        N_ENEMIES = 12
+        N_ENEMIES = 14
     enemies = []
     for i in range(N_ENEMIES):
         enemy_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -61,6 +61,8 @@ def settings():
                 f.write('4' + '\n')
             elif self.radioButton.isChecked():
                 f.write('5' + '\n')
+            else:
+                f.write('1' + '\n')
             # rpotiv
             f.write('stormtrooper.png death-stormtrooper.png trade-federation-droid.png' + '\n')
             if self.radioButton_6.isChecked():
@@ -69,6 +71,8 @@ def settings():
                 f.write('2' + '\n')
             elif self.radioButton_8.isChecked():
                 f.write('3' + '\n')
+            else:
+                f.write('1' + '\n')
             # prepyat
             f.write('hole.png mine.png bust-droid.png' + '\n')
             if self.radioButton_10.isChecked():
@@ -77,6 +81,8 @@ def settings():
                 f.write('2' + '\n')
             elif self.radioButton_5.isChecked():
                 f.write('3' + '\n')
+            else:
+                f.write('1' + '\n')
 
     app = QApplication(sys.argv)
     ex = MyWidget()
@@ -133,8 +139,8 @@ def check_move():
 def move_wrap(canvas, obj, move):
     canvas.move(obj, move[0], move[1])
     coords = canvas.coords(obj)
-    to_move_x = coords[0] % 720 - coords[0]
-    to_move_y = coords[1] % 720 - coords[1]
+    to_move_x = coords[0] % 840 - coords[0]
+    to_move_y = coords[1] % 840 - coords[1]
     canvas.move(obj, to_move_x, to_move_y)
 
 
@@ -156,8 +162,8 @@ def key_pressed(event):
 
 
 step = 60
-N_X = 12
-N_Y = 12
+N_X = 14
+N_Y = 14
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
     f = inp.read().split('\n')[0::]
