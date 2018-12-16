@@ -83,6 +83,16 @@ def settings():
                 f.write('3' + '\n')
             else:
                 f.write('1' + '\n')
+            #fon
+            f.write('\n')
+            if self.radioButton_12.isChecked():
+                f.write('1' + '\n')
+            elif self.radioButton_13.isChecked():
+                f.write('2' + '\n')
+            elif self.radioButton_14.isChecked():
+                f.write('3' + '\n')
+            else:
+                f.write('1' + '\n')
 
     app = QApplication(sys.argv)
     ex = MyWidget()
