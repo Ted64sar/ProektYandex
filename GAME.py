@@ -10,14 +10,19 @@ def prepare_and_start():
 
     label.config(text="Найди выход")
     f = []
-    global player, exit, fires, enemies
+    global player, exit, fires, enemies, guardian
     canvas.delete("all")
     player_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     player = canvas.create_image((player_pos[0], player_pos[1]), image=player_pic, anchor='nw')
-    exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
+    exit_pos = (random.randint(2, N_X - 2) * step, random.randint(2, N_Y - 2) * step)
     while exit_pos == player_pos:
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
+    guard_pos = ((exit_pos[0] + 1) * step, (exit_pos[1]+1) * step)
+    guard = canvas.create_image((guard_pos[0], guard_pos[1]), image=guard_pic, anchor='nw')
+    strategiya = random.choice([LeftM, RightM, LeftM, RightM, statyk])
+    guardian = (guard, strategiya)
+
     N_FIRES = 15
     fires = []
     for i in range(N_FIRES):
@@ -36,6 +41,7 @@ def prepare_and_start():
         enemy = canvas.create_image((enemy_pos[0], enemy_pos[1]), image=enemy_pic, anchor='nw')
         enemies.append((enemy, random.choice([always_right, random_move, always_up, always_left, always_down, statyk])))
     master.bind("<KeyPress>", key_pressed)
+
 
 
 
@@ -127,6 +133,13 @@ def random_move():
         elif canvas.coords(player)[1] > canvas.coords(e[0])[1]:
             return (0, step)
 
+def LeftM():
+    if canvas.coords(guadian[0])[0] > canvas.coords([0])[0]:
+        return (step, 0)
+
+def RightM():
+    j=j+1
+
 
 def do_nothing(x):
     return
@@ -168,12 +181,13 @@ def key_pressed(event):
     for enemy in enemies:
         direction = enemy[1]()
         move_wrap(canvas, enemy[0], direction)
+
     check_move()
 
 
 step = 60
-N_X = 12
-N_Y = 12
+N_X = 10
+N_Y = 10
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
     f = inp.read().split('\n')[0::]
@@ -192,7 +206,7 @@ player_pic = tkinter.PhotoImage(file="images/"+str(files[0].split()[int(ind[0])-
 exit_pic = tkinter.PhotoImage(file="images/tardis.png")
 fire_pic = tkinter.PhotoImage(file="images/"+str(files[2].split()[int(ind[2])-1]))
 enemy_pic = tkinter.PhotoImage(file="images/"+str(files[1].split()[int(ind[1])-1]))
-
+guard_pic = tkinter.PhotoImage(file="images/Fazma.png")
 
 prepare_and_start()
 master.mainloop()
