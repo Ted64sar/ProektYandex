@@ -18,7 +18,7 @@ def prepare_and_start():
         exit_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
     exit = canvas.create_image((exit_pos[0], exit_pos[1]), image=exit_pic, anchor='nw')
 
-    N_FIRES = 15
+    N_FIRES = 5 * regim
     fires = []
     for i in range(N_FIRES):
         fire_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
@@ -27,7 +27,7 @@ def prepare_and_start():
         f.append(fire_pos)
         fire = canvas.create_image((fire_pos[0],fire_pos[1]), image=fire_pic, anchor='nw')
         fires.append(fire)
-        N_ENEMIES = 14
+    N_ENEMIES = 5 + regim * 4
     e = []
     enemies = []
     for i in range(N_ENEMIES):
@@ -38,11 +38,12 @@ def prepare_and_start():
         enemy = canvas.create_image((enemy_pos[0], enemy_pos[1]), image=enemy_pic, anchor='nw')
         enemies.append((enemy, random.choice([always_right, random_move, always_up, always_left, always_down, statyk])))
     bosses = []
-    boss_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-    while exit_pos == boss_pos or boss_pos == player_pos or boss_pos in f or boss_pos in e:
+    if regim >= 3:
         boss_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
-    boss = canvas.create_image((boss_pos[0],boss_pos[1]), image=boss_pic, anchor='nw')
-    bosses.append((boss, random.choice([Hunt, patrul, Hunt, Hunt])))
+        while exit_pos == boss_pos or boss_pos == player_pos or boss_pos in f or boss_pos in e:
+            boss_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
+        boss = canvas.create_image((boss_pos[0],boss_pos[1]), image=boss_pic, anchor='nw')
+        bosses.append((boss, random.choice([Hunt, patrul, Hunt])))
     master.bind("<KeyPress>", key_pressed)
 
 
@@ -250,13 +251,14 @@ def key_pressed(event):
 
 
 step = 60
-N_X = 10
-N_Y = 10
+N_X = 12
+N_Y = 12
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
     f = inp.read().split('\n')[0::]
     files = f[::2]
     ind = f[1::2]
+regim = int(files[4]) - 1
 label = tkinter.Label(master, text="Найди выход")
 label.pack()
 restart = tkinter.Button(master, text="Начать заново", command=prepare_and_start)
@@ -271,6 +273,7 @@ exit_pic = tkinter.PhotoImage(file="images/tardis.png")
 fire_pic = tkinter.PhotoImage(file="images/"+str(files[2].split()[int(ind[2])-1]))
 enemy_pic = tkinter.PhotoImage(file="images/"+str(files[1].split()[int(ind[1])-1]))
 boss_pic = tkinter.PhotoImage(file="images/"+str(files[3].split()[int(ind[3])-1]))
+regim = int(files[4]) - 1
 
 prepare_and_start()
 master.mainloop()
