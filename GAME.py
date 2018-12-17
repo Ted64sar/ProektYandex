@@ -2,8 +2,8 @@
 import tkinter
 import random
 import sys
-#from PyQt5.QtWidgets import QApplication, QMainWindow
-#from ui_file import Ui_MainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow
+from ui_file import Ui_MainWindow
 
 
 def prepare_and_start():
@@ -89,14 +89,25 @@ def settings():
                 f.write('3' + '\n')
             else:
                 f.write('1' + '\n')
-            #fon
-            f.write('\n')
+            #strazh
+            f.write('Fazma.png general_grivus.png grand_inkvizitor' + '\n')
             if self.radioButton_12.isChecked():
                 f.write('1' + '\n')
             elif self.radioButton_13.isChecked():
                 f.write('2' + '\n')
             elif self.radioButton_14.isChecked():
                 f.write('3' + '\n')
+            else:
+                f.write('1' + '\n')
+            #level
+            if self.radioButton_15.isChecked():
+                f.write('1' + '\n')
+            elif self.radioButton_16.isChecked():
+                f.write('2' + '\n')
+            elif self.radioButton_17.isChecked():
+                f.write('3' + '\n')
+            elif self.radioButton_18.isChecked():
+                f.write('4' + '\n')
             else:
                 f.write('1' + '\n')
 

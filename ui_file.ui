@@ -19,7 +19,7 @@
      <rect>
       <x>50</x>
       <y>80</y>
-      <width>301</width>
+      <width>391</width>
       <height>371</height>
      </rect>
     </property>
@@ -239,7 +239,7 @@
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Фон</string>
+      <string>Стражи</string>
      </attribute>
      <widget class="QWidget" name="formLayoutWidget_4">
       <property name="geometry">
@@ -254,21 +254,115 @@
        <item row="0" column="0">
         <widget class="QRadioButton" name="radioButton_12">
          <property name="text">
-          <string>RadioButton</string>
+          <string>Капитан Фазма</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QRadioButton" name="radioButton_13">
          <property name="text">
-          <string>RadioButton</string>
+          <string>Генерал Гривус</string>
          </property>
         </widget>
        </item>
        <item row="2" column="0">
         <widget class="QRadioButton" name="radioButton_14">
          <property name="text">
-          <string>RadioButton</string>
+          <string>Гранд-инквизитор</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_12">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/images/Fazma.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/images/general_grivus.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/newPrefix/images/grand_inkvizitor.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Уровень</string>
+     </attribute>
+     <widget class="QWidget" name="formLayoutWidget_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>301</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <layout class="QFormLayout" name="formLayout_5">
+       <item row="0" column="0">
+        <widget class="QRadioButton" name="radioButton_15">
+         <property name="text">
+          <string>Элементарно</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QRadioButton" name="radioButton_16">
+         <property name="text">
+          <string>Легко</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QRadioButton" name="radioButton_17">
+         <property name="text">
+          <string>Нормально</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QRadioButton" name="radioButton_18">
+         <property name="text">
+          <string>Сложно</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_16">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>TextLabel</string>
          </property>
         </widget>
        </item>
