@@ -2,8 +2,8 @@
 import tkinter
 import random
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from ui_file import Ui_MainWindow
+#from PyQt5.QtWidgets import QApplication, QMainWindow
+#from ui_file import Ui_MainWindow
 
 
 def prepare_and_start():
@@ -149,8 +149,8 @@ def check_move():
 def move_wrap(canvas, obj, move):
     canvas.move(obj, move[0], move[1])
     coords = canvas.coords(obj)
-    to_move_x = coords[0] % 840 - coords[0]
-    to_move_y = coords[1] % 840 - coords[1]
+    to_move_x = coords[0] % 720 - coords[0]
+    to_move_y = coords[1] % 720 - coords[1]
     canvas.move(obj, to_move_x, to_move_y)
 
 
@@ -172,26 +172,27 @@ def key_pressed(event):
 
 
 step = 60
-N_X = 14
-N_Y = 14
+N_X = 12
+N_Y = 12
 master = tkinter.Tk()
 with open('GAME_SETTINGS.txt', 'r') as inp:
     f = inp.read().split('\n')[0::]
     files = f[::2]
     ind = f[1::2]
-
-
 label = tkinter.Label(master, text="Найди выход")
-player_pic = tkinter.PhotoImage(file="images/"+str(files[0].split()[int(ind[0])-1]))
-exit_pic = tkinter.PhotoImage(file="images/tardis.png")
-fire_pic = tkinter.PhotoImage(file="images/"+str(files[2].split()[int(ind[2])-1]))
-enemy_pic = tkinter.PhotoImage(file="images/"+str(files[1].split()[int(ind[1])-1]))
 label.pack()
-canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
-canvas.pack()
 restart = tkinter.Button(master, text="Начать заново", command=prepare_and_start)
 restart.pack()
 settings = tkinter.Button(master, text="Настройки", command=settings)
 settings.pack()
+canvas = tkinter.Canvas(master, bg='black', height=N_X * step, width=N_Y * step)
+canvas.pack()
+
+player_pic = tkinter.PhotoImage(file="images/"+str(files[0].split()[int(ind[0])-1]))
+exit_pic = tkinter.PhotoImage(file="images/tardis.png")
+fire_pic = tkinter.PhotoImage(file="images/"+str(files[2].split()[int(ind[2])-1]))
+enemy_pic = tkinter.PhotoImage(file="images/"+str(files[1].split()[int(ind[1])-1]))
+
+
 prepare_and_start()
 master.mainloop()
