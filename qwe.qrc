@@ -1,0 +1,23 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>images/easy.png</file>
+    <file>images/elementary.png</file>
+    <file>images/hard.png</file>
+    <file>images/normal.png</file>
+    <file>images/BB8.png</file>
+    <file>images/bust-droid.png</file>
+    <file>images/C3PO.png</file>
+    <file>images/CHOPPER.png</file>
+    <file>images/death-stormtrooper.png</file>
+    <file>images/Fazma.png</file>
+    <file>images/general_grivus.png</file>
+    <file>images/grand_inkvizitor.png</file>
+    <file>images/hole.png</file>
+    <file>images/mine.png</file>
+    <file>images/R2-D2.png</file>
+    <file>images/R-4.png</file>
+    <file>images/stormtrooper.png</file>
+    <file>images/tardis.png</file>
+    <file>images/trade-federation-droid.png</file>
+  </qresource>
+</RCC>
