@@ -223,7 +223,7 @@ class Ui_MainWindow(object):
         self.label_12.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/newPrefix/images/Fazma.png\"/></p></body></html>"))
         self.label_13.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/newPrefix/images/general_grivus.png\"/></p></body></html>"))
         self.label_14.setText(_translate("MainWindow", "<html><head/><body><p><img src=\":/newPrefix/images/grand_inkvizitor.png\"/></p></body></html>"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Босс"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Боссw"))
         self.radioButton_15.setText(_translate("MainWindow", "Элементарно"))
         self.radioButton_16.setText(_translate("MainWindow", "Легко"))
         self.radioButton_17.setText(_translate("MainWindow", "Нормально"))
