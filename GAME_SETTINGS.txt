@@ -6,4 +6,4 @@ hole.png mine.png bust-droid.png
 3
 Fazma.png general_grivus.png grand_inkvizitor.png
 1
-2
+4
