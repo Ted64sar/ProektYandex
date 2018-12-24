@@ -164,11 +164,12 @@ def BigHunt():
             hway.append(-step)
         else:
             hway.append(-step)
+    '''
     for e in enemies:
         if e[1] != random_move():
             e[1] = random_move()
     return tuple(hway)
-
+'''
 
 def Hunt():
     for b in bosses:
