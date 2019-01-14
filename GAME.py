@@ -43,7 +43,7 @@ def prepare_and_start():
         while exit_pos == boss_pos or boss_pos == player_pos or boss_pos in f or boss_pos in e:
             boss_pos = (random.randint(1, N_X - 1) * step, random.randint(1, N_Y - 1) * step)
         boss = canvas.create_image((boss_pos[0],boss_pos[1]), image=boss_pic, anchor='nw')
-        bosses.append((boss, random.choice([Hunt, patrul, Hunt, Hunt, patrul, Hunt, BigHunt])))
+        bosses.append((boss, random.choice([Hunt, patrul, Hunt, Hunt, patrul, Hunt])))
     master.bind("<KeyPress>", key_pressed)
 
 

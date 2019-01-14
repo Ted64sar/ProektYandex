@@ -1,9 +1,9 @@
 R2-D2.png BB8.png R-4.png C3PO.png CHOPPER.png
-3
+2
 stormtrooper.png death-stormtrooper.png trade-federation-droid.png
-3
+2
 hole.png mine.png bust-droid.png
 3
 Fazma.png general_grivus.png grand_inkvizitor.png
-1
+2
 4
